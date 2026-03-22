@@ -1,0 +1,17 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Pattern -->
+    <item>
+        <bitmap
+            android:src="@drawable/pp1"
+            android:tileMode="repeat"/>
+    </item>
+
+    <!-- Transparent overlay -->
+    <item>
+        <shape>
+            <solid android:color="#87F6F2F2"/> <!-- black with opacity -->
+        </shape>
+    </item>
+
+</layer-list>
