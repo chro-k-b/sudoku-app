@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:background="@color/off_white"
     tools:context=".MainActivity">
 
     <!--            lol -->
@@ -40,11 +41,12 @@
         android:layout_height="64dp"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/amaticsc_bold"
+        android:onClick="openSettings"
         android:text="settings"
         android:textColor="#ffffff"
         android:textSize="30sp"
-        app:backgroundTint="@color/light_blue"
 
+        app:backgroundTint="@color/light_blue"
         app:cornerRadius="9dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline5"

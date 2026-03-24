@@ -1,5 +1,6 @@
 package com.example.homeschoolingjava1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.homeschoolingjava1.R;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     Button B1, B2, B3;
 
@@ -28,9 +29,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setContentView(R.layout.activity_main);
         initBit();
-        B1.setOnClickListener(this);
-        B2.setOnClickListener(this);
-        B3.setOnClickListener(this);
+//        B1.setOnClickListener(this);
+//        B2.setOnClickListener(this);
+//        B3.setOnClickListener(this);
     }
     public void initBit(){
         B1 = findViewById(R.id.B1);
@@ -39,15 +40,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    @Override
-    public void onClick(View v) {
-        int id = v.getId();
-        if (id == R.id.B1) {
-            Toast.makeText(this, "B1 is clicked", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.B2) {
-            Toast.makeText(this, "B2 is clicked", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.B3) {
-            Toast.makeText(this, "B3 is clicked", Toast.LENGTH_SHORT).show();
-        }
+    public void openSettings(View v){
+        Intent i = new Intent(this, SettingsActivity.class);
+        startActivity(i);
     }
+
+//    @Override
+//    public void onClick(View v) {
+//        int id = v.getId();
+//        if (id == R.id.B1) {
+//            Toast.makeText(this, "B1 is clicked", Toast.LENGTH_SHORT).show();
+//        } else if (id == R.id.B2) {
+//            Toast.makeText(this, "B2 is clicked", Toast.LENGTH_SHORT).show();
+//        } else if (id == R.id.B3) {
+//            Toast.makeText(this, "B3 is clicked", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 }
