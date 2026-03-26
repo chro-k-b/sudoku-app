@@ -39,6 +39,32 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.3" />
 
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/imgHistory"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="2dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:outlineAmbientShadowColor="@color/off_white"
+                android:outlineSpotShadowColor="@color/off_white"
+                app:cardBackgroundColor="@color/off_white"
+                app:cornerRadius="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/off_white">
+
+                <ImageView
+
+                    android:id="@+id/imgBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/back_icon" />
+
+            </com.google.android.material.card.MaterialCardView>
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
