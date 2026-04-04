@@ -66,6 +66,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Easy"
+                android:fontFamily="@font/amaticsc_bold"
+                android:textSize="30dp"
                 android:textColor="@color/easy_btn_text"
                 app:backgroundTint="@color/easy_btn_background" />
 
@@ -76,6 +78,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Medium"
+                android:fontFamily="@font/amaticsc_bold"
+                android:textSize="30dp"
                 android:textColor="@color/medium_btn_text"
                 app:backgroundTint="@color/medium_btn_bg" />
 
@@ -86,6 +90,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Hard"
+                android:fontFamily="@font/amaticsc_bold"
+                android:textSize="30dp"
                 android:textColor="@color/hard_btn_text"
                 app:backgroundTint="@color/hard_btn_bg" />
 
