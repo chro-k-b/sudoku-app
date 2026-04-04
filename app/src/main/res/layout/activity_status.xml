@@ -5,9 +5,20 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".statusActivity">
+    tools:context=".statusActivity"
+    android:background="@color/off_white">
 
-
+    <ImageView
+        android:id="@+id/imgBack1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:onClick="goBack"
+        android:padding="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back_icon"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="0dp"
