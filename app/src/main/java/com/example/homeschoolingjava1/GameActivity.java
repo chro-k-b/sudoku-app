@@ -1,5 +1,6 @@
 package com.example.homeschoolingjava1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -28,5 +29,10 @@ public class GameActivity extends AppCompatActivity {
     //it needs to also save the current settings when it closes
     public void goBack(View v){
         finish();
+    }
+
+    public void openSettings(View v){
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
     }
 }
