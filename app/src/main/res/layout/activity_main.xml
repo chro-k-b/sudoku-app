@@ -77,6 +77,7 @@
         android:layout_width="166dp"
         android:layout_height="64dp"
         android:fontFamily="@font/amaticsc_bold"
+        android:onClick="openGame"
         android:text="play"
         android:textColor="@color/dark_blue"
         android:textSize="30sp"

@@ -46,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(b);
     }
 
+    public void openGame(View v){
+        Intent i = new Intent(this, GameActivity.class);
+        startActivity(i);
+    }
+
 //    @Override
 //    public void onClick(View v) {
 //        int id = v.getId();

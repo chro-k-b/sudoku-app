@@ -177,7 +177,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/toggle_selector"
+                android:backgroundTint="@color/toggle_selector"
                 android:checked="true"
                 android:fontFamily="@font/amaticsc_bold"
                 android:text="ToggleButton"

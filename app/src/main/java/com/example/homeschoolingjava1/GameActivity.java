@@ -1,6 +1,7 @@
 package com.example.homeschoolingjava1;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +21,12 @@ public class GameActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    //this method is here so we can close setting intent when we finish
+    //it does nothing other than closing the setting intent
+    //it needs to also save the current settings when it closes
+    public void goBack(View v){
+        finish();
     }
 }
