@@ -12,16 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Homeschoolingjava1">
         <activity
+            android:name=".statusActivity"
+            android:exported="false" />
+        <activity
             android:name=".GameActivity"
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"
             android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.Homeschoolingjava1" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

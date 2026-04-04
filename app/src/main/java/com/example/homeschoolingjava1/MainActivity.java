@@ -29,9 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         initBit();
-//        B1.setOnClickListener(this);
-//        B2.setOnClickListener(this);
-//        B3.setOnClickListener(this);
     }
     public void initBit(){
         B1 = findViewById(R.id.B1);
@@ -43,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
     public void openSettings(View v){
         Intent i = new Intent(this, SettingsActivity.class);
         startActivity(i);
+    }
+    public void openStatus(View v){
+        Intent b = new Intent(this, statusActivity.class);
+        startActivity(b);
     }
 
 //    @Override
