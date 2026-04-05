@@ -69,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/amaticsc_bold"
         android:text="DIFFICULTY"
         android:textColor="@color/dark_blue"
@@ -81,7 +81,7 @@
         android:id="@+id/timerTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="80dp"
         android:fontFamily="@font/amaticsc_bold"
         android:text="TIME"
@@ -120,12 +120,12 @@
         android:id="@+id/gridLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="20dp"
         android:columnCount="3"
         android:rowCount="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/difficultyTextView1">
 
         <GridLayout
             android:layout_width="wrap_content"
@@ -142,63 +142,85 @@
                 android:layout_row="0"
                 android:layout_column="0"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b2"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b3"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b4"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="6"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b5"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="8"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b6"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b7"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="1"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b8"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="9"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b9"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
         </GridLayout>
 
         <GridLayout
@@ -214,63 +236,85 @@
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="2"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b11"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="6"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b12"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b13"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b14"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="7"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b15"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b16"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b17"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b18"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="4"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
         </GridLayout>
 
         <GridLayout
@@ -286,63 +330,85 @@
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="7"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b20"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b21"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="1"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b22"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b23"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="9"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b24"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b25"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="5"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b26"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b27"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
         </GridLayout>
 
         <GridLayout
@@ -358,63 +424,85 @@
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="8"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b29"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="2"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b30"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b31"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b32"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b33"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="4"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b34"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b35"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="5"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b36"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
         </GridLayout>
 
         <GridLayout
@@ -430,63 +518,85 @@
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="1"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b38"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b39"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b40"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="6"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b41"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b42"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="2"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b43"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b44"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b45"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="3"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
         </GridLayout>
 
         <GridLayout
@@ -502,63 +612,85 @@
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b47"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="4"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b48"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b49"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="9"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b50"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b51"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b52"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b53"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="2"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b54"
                 android:layout_width="39dp"
-                android:layout_height="40dp"
+                android:layout_height="41dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="8"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
         </GridLayout>
 
         <GridLayout
@@ -574,63 +706,85 @@
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b56"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b57"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="9"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b58"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b59"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="4"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b60"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b61"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="7"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b62"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b63"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="3"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
         </GridLayout>
 
         <GridLayout
@@ -646,63 +800,85 @@
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="3"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b65"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b66"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b67"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b68"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="5"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b69"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b70"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b71"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="1"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b72"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/dark_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="8"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
         </GridLayout>
 
         <GridLayout
@@ -718,63 +894,85 @@
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b74"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="7"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b75"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="4"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b76"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b77"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="3"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b78"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="6"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b79"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b80"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/b81"
                 android:layout_width="39dp"
                 android:layout_height="40dp"
                 android:background="@drawable/light_blue_border"
-                android:textColor="@color/dark_blue" />
+                android:fontFamily="@font/amaticsc_bold"
+                android:textColor="@color/dark_blue"
+                android:textSize="24dp" />
         </GridLayout>
 
     </GridLayout>
@@ -783,7 +981,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout">
@@ -881,82 +1079,181 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
 
-        android:layout_marginTop="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/imgYoutubeContainer"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            app:cardBackgroundColor="@color/off_white"
-            app:cornerRadius="50dp"
-            app:strokeColor="@color/off_white">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-            <ImageView
+            android:orientation="vertical">
 
-                android:id="@+id/imgYoutube"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/imgUndoContainer"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                app:cardBackgroundColor="@color/off_white"
+                app:cornerRadius="50dp"
+                app:strokeColor="@color/off_white">
+
+                <ImageView
+
+                    android:id="@+id/imgUndo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="3dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/undo_icon" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/undoText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/undo_icon" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="undo"
+                android:textAlignment="center"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
+        </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
+            android:orientation="vertical">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/imgFacebookContainer"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            app:cardBackgroundColor="@color/off_white"
-            app:cornerRadius="50dp"
-            app:strokeColor="@color/off_white">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/imgEraseContainer"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                app:cardBackgroundColor="@color/off_white"
+                app:cornerRadius="50dp"
+                app:strokeColor="@color/off_white">
 
-            <ImageView
-                android:id="@+id/imgFacebook"
+                <ImageView
+                    android:id="@+id/imgErase"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/eraser_icon" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/eraseText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/eraser_icon" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="erase"
+                android:textAlignment="center"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
 
-        </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/imgInstagramContainer"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            app:cardBackgroundColor="@color/off_white"
-            app:cornerRadius="50dp"
-            app:strokeColor="@color/off_white">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-            <ImageView
-                android:id="@+id/imgInstagram"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/imgHintContainer"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="0dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                app:cardBackgroundColor="@color/off_white"
+                app:cornerRadius="50dp"
+                app:strokeColor="@color/off_white">
+
+                <ImageView
+                    android:id="@+id/imgHint"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="0dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/hint_icon" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/hintText"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="0dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/hint_icon" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/amaticsc_bold"
+                android:text="hint"
+                android:textAlignment="center"
+                android:textColor="@color/dark_blue"
+                android:textSize="20sp" />
 
-        </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/restartBtn"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/amaticsc_bold"
+            android:text="restart"
+            android:textColor="@color/dark_blue"
+            android:textSize="23sp"
+            app:backgroundTint="@color/light_blue"
+            app:cornerRadius="9dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mainMenuBtn"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/amaticsc_bold"
+            android:onClick="openMainMenu"
+            android:text="main menu"
+            android:textColor="@color/dark_blue"
+            android:textSize="23sp"
+            app:backgroundTint="@color/light_blue"
+            app:cornerRadius="9dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
