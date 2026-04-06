@@ -28,12 +28,13 @@
 
         <ImageView
 
-            android:id="@+id/imgHistory1"
+            android:id="@+id/imgSettings1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="openSettings"
             android:padding="8dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/history_icon" />
+            android:src="@drawable/setting_icon" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -44,8 +45,7 @@
         android:layout_height="64dp"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/amaticsc_bold"
-        android:onClick="openSettings"
-        android:text="settings"
+        android:text="History"
         android:textColor="#ffffff"
         android:textSize="30sp"
 
