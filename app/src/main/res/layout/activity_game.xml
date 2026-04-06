@@ -25,14 +25,12 @@
         app:strokeColor="@color/off_white">
 
         <ImageView
-
             android:id="@+id/imgBack1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="goBack"
             android:padding="8dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/back_icon" />
+            android:src="@drawable/threebars_icon" />
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -53,7 +51,6 @@
         app:strokeColor="@color/off_white">
 
         <ImageView
-
             android:id="@+id/imgSettings1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -1230,30 +1227,84 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/restartBtn"
-            android:layout_width="140dp"
-            android:layout_height="50dp"
-            android:layout_marginRight="10dp"
+<!--side menu overlay-->
+    </LinearLayout>
+
+    <!-- Side Menu Overlay -->
+    <View
+        android:id="@+id/menuOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#80000000"
+        android:visibility="gone"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Custom Side Menu -->
+    <LinearLayout
+        android:id="@+id/sideMenu"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:elevation="16dp"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:translationX="-280dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="40dp"
             android:fontFamily="@font/amaticsc_bold"
-            android:text="restart"
+            android:text="SUDOKU MENU"
             android:textColor="@color/dark_blue"
-            android:textSize="23sp"
-            app:backgroundTint="@color/light_blue"
-            app:cornerRadius="9dp" />
+            android:textSize="36sp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/mainMenuBtn"
-            android:layout_width="140dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="10dp"
+            android:id="@+id/btnNewGame"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="16dp"
             android:fontFamily="@font/amaticsc_bold"
-            android:onClick="openMainMenu"
-            android:text="main menu"
+            android:text="New Game"
             android:textColor="@color/dark_blue"
-            android:textSize="23sp"
+            android:textSize="30sp"
             app:backgroundTint="@color/light_blue"
-            app:cornerRadius="9dp" />
+            app:cornerRadius="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRestartMenu"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/amaticsc_bold"
+            android:text="Restart"
+            android:textColor="@color/dark_blue"
+            android:textSize="30sp"
+            app:backgroundTint="@color/light_blue"
+            app:cornerRadius="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMainMenuMenu"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:fontFamily="@font/amaticsc_bold"
+            android:onClick="goBack"
+            android:text="Main Menu"
+            android:textColor="@color/dark_blue"
+            android:textSize="30sp"
+            app:backgroundTint="@color/light_blue"
+            app:cornerRadius="12dp" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
