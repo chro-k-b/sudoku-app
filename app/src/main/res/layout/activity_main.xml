@@ -46,10 +46,10 @@
         android:layout_marginTop="50dp"
         android:fontFamily="@font/amaticsc_bold"
         android:text="History"
-        android:textColor="#ffffff"
+        android:textColor="@color/light_blue"
         android:textSize="30sp"
 
-        app:backgroundTint="@color/light_blue"
+        app:backgroundTint="@color/dark_blue"
         app:cornerRadius="9dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
