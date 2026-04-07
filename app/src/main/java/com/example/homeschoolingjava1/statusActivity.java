@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class statusActivity extends AppCompatActivity {
 
@@ -29,4 +31,29 @@ public class statusActivity extends AppCompatActivity {
     public void goBack(View v){
         finish();
     }
+
+
+    FragmentManager fragManager = getSupportFragmentManager();
+
+    public void showEasyStatus(View v){
+        FragmentTransaction transaction = fragManager.beginTransaction();
+        EasyStatusFragment easyStatusFragment = new EasyStatusFragment();
+        transaction.replace(R.id.fragmentContainerView, easyStatusFragment);
+        transaction.commit();
+    }
+
+    public void showMediumStatus(View v){
+        FragmentTransaction transaction = fragManager.beginTransaction();
+        MediumStatusFragment mediumStatusFragment = new MediumStatusFragment();
+        transaction.replace(R.id.fragmentContainerView, mediumStatusFragment);
+        transaction.commit();
+    }
+
+    public void showHardStatus(View v){
+        FragmentTransaction transaction = fragManager.beginTransaction();
+        HardStatusFragment hardStatusFragment = new HardStatusFragment();
+        transaction.replace(R.id.fragmentContainerView, hardStatusFragment);
+        transaction.commit();
+    }
+
 }
