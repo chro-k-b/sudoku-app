@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Homeschoolingjava1">
         <activity
+            android:name=".HistoryDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".HistoryActivity"
             android:exported="false" />
         <activity

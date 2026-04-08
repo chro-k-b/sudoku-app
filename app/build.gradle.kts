@@ -5,16 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.homeschoolingjava1"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.homeschoolingjava1"
-        minSdk = 36
-        targetSdk = 36
+        minSdk = 24
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -54,6 +50,11 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.material3.adaptive.navigation.suite)
     implementation(libs.fragment)
+
+    // Room components
+    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
