@@ -51,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void openHistory(View v){
+        Intent i = new Intent(this, HistoryActivity.class);
+        startActivity(i);
+    }
+}
+
+
+
 //    @Override
 //    public void onClick(View v) {
 //        int id = v.getId();
@@ -62,4 +70,3 @@ public class MainActivity extends AppCompatActivity {
 //            Toast.makeText(this, "B3 is clicked", Toast.LENGTH_SHORT).show();
 //        }
 //    }
-}
