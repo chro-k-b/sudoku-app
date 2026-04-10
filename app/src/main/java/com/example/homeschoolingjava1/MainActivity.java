@@ -1,13 +1,11 @@
 package com.example.homeschoolingjava1;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.homeschoolingjava1.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,18 +53,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, HistoryActivity.class);
         startActivity(i);
     }
+
+    public void openYoutube(View v){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
+        startActivity(intent);
+    }
 }
-
-
-
-//    @Override
-//    public void onClick(View v) {
-//        int id = v.getId();
-//        if (id == R.id.B1) {
-//            Toast.makeText(this, "B1 is clicked", Toast.LENGTH_SHORT).show();
-//        } else if (id == R.id.B2) {
-//            Toast.makeText(this, "B2 is clicked", Toast.LENGTH_SHORT).show();
-//        } else if (id == R.id.B3) {
-//            Toast.makeText(this, "B3 is clicked", Toast.LENGTH_SHORT).show();
-//        }
-//    }
