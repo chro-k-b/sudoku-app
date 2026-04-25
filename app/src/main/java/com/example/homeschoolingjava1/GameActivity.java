@@ -2,6 +2,7 @@ package com.example.homeschoolingjava1;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -15,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.card.MaterialCardView;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -35,8 +38,25 @@ public class GameActivity extends AppCompatActivity {
 
     private int selectedRow = -1;
     private int selectedCol = -1;
+    private android.widget.Button selectedCell = null;
 
     private int difficulty;
+
+    private static class Move {
+        int row;
+        int col;
+        int previousValue;
+        int newValue;
+
+        Move(int row, int col, int previousValue, int newValue) {
+            this.row = row;
+            this.col = col;
+            this.previousValue = previousValue;
+            this.newValue = newValue;
+        }
+    }
+
+    private java.util.Stack<Move> moveStack = new java.util.Stack<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +131,17 @@ public class GameActivity extends AppCompatActivity {
             closeMenu();
         });
 
+        findViewById(R.id.imgEraseContainer).setOnClickListener(v -> eraseSelectedCell());
+        findViewById(R.id.imgUndoContainer).setOnClickListener(v -> undoLastMove());
+
+        MaterialCardView hint = findViewById(R.id.imgHintContainer);
+        if (difficulty == 3) { // HARD
+            hint.setEnabled(false);
+            hint.setAlpha(0.5f);
+        }
+
+        hint.setOnClickListener(v -> giveHint());
+
         initBoard();
         generateSolution();
         generatePuzzle();
@@ -155,6 +186,16 @@ public class GameActivity extends AppCompatActivity {
             int finalCol = col;
 
             cells[row][col].setOnClickListener(v -> {
+
+                // reset previous selected cell
+                if (selectedCell != null) {
+                    selectedCell.setBackgroundTintList(null);
+                }
+
+                // set new selection
+                selectedCell = (android.widget.Button) v;
+                selectedCell.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.light_blue)));
+
                 selectedRow = finalRow;
                 selectedCol = finalCol;
             });
@@ -322,6 +363,12 @@ public class GameActivity extends AppCompatActivity {
 
         if (!cells[selectedRow][selectedCol].isEnabled()) return;
 
+        int previousValue = playerBoard[selectedRow][selectedCol];
+
+        moveStack.push(
+                new Move(selectedRow, selectedCol, previousValue, number)
+        );
+
         playerBoard[selectedRow][selectedCol] = number;
 
         cells[selectedRow][selectedCol].setText(String.valueOf(number));
@@ -337,6 +384,138 @@ public class GameActivity extends AppCompatActivity {
                 cells[selectedRow][selectedCol].setTextColor(getResources().getColor(R.color.light_blue2));
             }
         }
+        if (selectedCell != null) {
+            selectedCell.setBackgroundTintList(null);
+            selectedCell = null;
+            selectedRow = -1;
+            selectedCol = -1;
+        }
+
+        if (isBoardComplete()) {
+            onGameWon();
+        }
+    }
+
+    private void eraseSelectedCell() {
+        if (selectedRow == -1 || selectedCol == -1) return;
+
+        if (!cells[selectedRow][selectedCol].isEnabled()) return;
+
+        int previousValue = playerBoard[selectedRow][selectedCol];
+
+        moveStack.push(
+                new Move(selectedRow, selectedCol, previousValue, 0)
+        );
+
+        playerBoard[selectedRow][selectedCol] = 0;
+        cells[selectedRow][selectedCol].setText("");
+
+        if (selectedCell != null) {
+            selectedCell.setBackgroundTintList(null);
+            selectedCell = null;
+            selectedRow = -1;
+            selectedCol = -1;
+        }
+    }
+
+    private void undoLastMove() {
+
+        if (moveStack.isEmpty()) return;
+
+        Move lastMove = moveStack.pop();
+
+        playerBoard[lastMove.row][lastMove.col] = lastMove.previousValue;
+
+        if (lastMove.previousValue == 0) {
+            cells[lastMove.row][lastMove.col].setText("");
+        } else {
+            cells[lastMove.row][lastMove.col]
+                    .setText(String.valueOf(lastMove.previousValue));
+        }
+
+        cells[lastMove.row][lastMove.col]
+                .setTextColor(getResources().getColor(R.color.light_blue));
+    }
+
+    private void giveHint() {
+
+        java.util.List<int[]> emptyCells = new java.util.ArrayList<>();
+
+        // collect all empty cells
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                if (playerBoard[row][col] == 0) {
+                    emptyCells.add(new int[]{row, col});
+                }
+            }
+        }
+
+        if (emptyCells.isEmpty()) return;
+
+        // pick random empty cell
+        java.util.Random rand = new java.util.Random();
+        int[] cell = emptyCells.get(rand.nextInt(emptyCells.size()));
+
+        int row = cell[0];
+        int col = cell[1];
+
+        int correctValue = solutionBoard[row][col];
+
+        // save for undo
+        moveStack.push(new Move(row, col, 0, correctValue));
+
+        // update board
+        playerBoard[row][col] = correctValue;
+
+        // update UI
+        cells[row][col].setText(String.valueOf(correctValue));
+        cells[row][col].setTextColor(getResources().getColor(R.color.green));
+
+        // lock it (acts like original cell)
+        cells[row][col].setEnabled(false);
+
+        if (isBoardComplete()) {
+            onGameWon();
+        }
+    }
+
+    private boolean isBoardComplete() {
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                if (playerBoard[row][col] != solutionBoard[row][col]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private void onGameWon() {
+
+        // stop timer
+        if (timer != null) {
+            timer.cancel();
+        }
+
+        showWinDialog();
+    }
+
+    private void showWinDialog() {
+
+        new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Congratulations 🎉")
+                .setMessage("You solved the Sudoku!")
+
+                .setPositiveButton("Play Again", (dialog, which) -> {
+                    recreate(); // reload activity
+                })
+
+                .setNegativeButton("Main Menu", (dialog, which) -> {
+                    finish(); // go back
+                })
+
+                .setCancelable(false)
+                .show();
     }
 
     private void openMenu() {
