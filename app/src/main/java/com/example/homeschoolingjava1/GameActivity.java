@@ -115,6 +115,7 @@ public class GameActivity extends AppCompatActivity {
         generateSolution();
         generatePuzzle();
         displayBoard(playerBoard);
+        initNumberButtons();
     }
 
     private void startTimer() {
@@ -300,6 +301,40 @@ public class GameActivity extends AppCompatActivity {
                     cells[row][col].setText("");
                     cells[row][col].setEnabled(true);
                 }
+            }
+        }
+    }
+
+    private void initNumberButtons() {
+        for (int i = 1; i <= 9; i++) {
+            int resID = getResources().getIdentifier("n" + i, "id", getPackageName());
+            int number = i;
+
+            findViewById(resID).setOnClickListener(v -> {
+                if (selectedRow != -1 && selectedCol != -1) {
+                    handleInput(number);
+                }
+            });
+        }
+    }
+
+    private void handleInput(int number) {
+
+        if (!cells[selectedRow][selectedCol].isEnabled()) return;
+
+        playerBoard[selectedRow][selectedCol] = number;
+
+        cells[selectedRow][selectedCol].setText(String.valueOf(number));
+
+        if (solutionBoard[selectedRow][selectedCol] == number) {
+            cells[selectedRow][selectedCol].setTextColor(getResources().getColor(R.color.light_blue2));
+
+        } else {
+            // wrong
+            if (difficulty == 1) {
+                cells[selectedRow][selectedCol].setTextColor(getResources().getColor(R.color.red));
+            } else {
+                cells[selectedRow][selectedCol].setTextColor(getResources().getColor(R.color.light_blue2));
             }
         }
     }
