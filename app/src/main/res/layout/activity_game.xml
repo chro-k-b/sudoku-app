@@ -143,7 +143,6 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="6"
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -153,7 +152,6 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="8"
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -172,7 +170,6 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="1"
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -182,7 +179,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="9"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -210,7 +207,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="2"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -220,7 +217,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="6"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -248,7 +245,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="7"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -285,7 +282,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="4"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
         </GridLayout>
@@ -304,7 +301,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="7"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -323,7 +320,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="1"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -342,7 +339,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="9"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -361,7 +358,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="5"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -398,7 +395,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="8"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -408,7 +405,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="2"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -445,7 +442,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="4"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -464,7 +461,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="5"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -492,7 +489,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="1"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -520,7 +517,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="6"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -539,7 +536,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="2"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -567,7 +564,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="3"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
         </GridLayout>
@@ -595,7 +592,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="4"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -614,7 +611,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="9"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -651,7 +648,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="2"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -661,7 +658,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="8"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
         </GridLayout>
@@ -698,7 +695,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="9"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -717,7 +714,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="4"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -736,7 +733,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="7"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -755,7 +752,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="3"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
         </GridLayout>
@@ -774,7 +771,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="3"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -811,7 +808,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="5"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -839,7 +836,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="1"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -849,7 +846,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/dark_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="8"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
         </GridLayout>
@@ -877,7 +874,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="7"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -887,7 +884,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="4"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -906,7 +903,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="3"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
@@ -916,7 +913,7 @@
                 android:layout_height="45dp"
                 android:background="@drawable/light_blue_border"
                 android:fontFamily="@font/amaticsc_bold"
-                android:text="6"
+                android:text=""
                 android:textColor="@color/dark_blue"
                 android:textSize="30sp" />
 
