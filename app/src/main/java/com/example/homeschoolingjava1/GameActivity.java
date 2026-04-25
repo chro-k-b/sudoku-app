@@ -1,9 +1,12 @@
 package com.example.homeschoolingjava1;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
@@ -18,6 +21,21 @@ public class GameActivity extends AppCompatActivity {
     private LinearLayout sideMenu;
     private boolean isMenuOpen = false;
     private int menuWidth;
+    private TextView difficultyTextView;
+    private TextView timerTextView;
+    private TextView timerTextView1;
+    private CountDownTimer timer;
+    long secondsElapsed = 0;
+
+    private android.widget.Button[][] cells = new android.widget.Button[9][9];
+
+    private int[][] solutionBoard = new int[9][9];
+    private int[][] playerBoard = new int[9][9];
+
+    private int selectedRow = -1;
+    private int selectedCol = -1;
+
+    private int difficulty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +52,33 @@ public class GameActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        //getting the setting preferences
+        SharedPreferences prefs = getSharedPreferences("SudokuSettings", MODE_PRIVATE);
+
+        difficulty = prefs.getInt("difficulty", 1); // default easy
+        boolean timerEnabled = prefs.getBoolean("timerEnabled", false);
+
+        difficultyTextView = findViewById(R.id.difficultyTextView1);
+        switch(difficulty){
+            case(1):
+                difficultyTextView.setText("easy");
+                break;
+            case(2):
+                difficultyTextView.setText("medium");
+                break;
+            case(3):
+                difficultyTextView.setText("hard");
+                break;
+        }
+
+        timerTextView = findViewById(R.id.timerTextView);
+        timerTextView1 = findViewById(R.id.timerTextView1);
+
+        if(timerEnabled){
+            timerTextView.setText("time");
+            startTimer();
+        }
 
         // Set click listener for the back button to open menu
         findViewById(R.id.imgBack1).setOnClickListener(v -> openMenu());
@@ -64,6 +109,43 @@ public class GameActivity extends AppCompatActivity {
             // Restart Logic
             closeMenu();
         });
+
+
+    }
+
+    private void startTimer() {
+        timer = new CountDownTimer(3600000, 1000) {
+            public void onTick(long millisUntilFinished) {
+                secondsElapsed++;
+
+                int minutes = (int) (secondsElapsed / 60);
+                int seconds = (int) (secondsElapsed % 60);
+
+                timerTextView1.setText(String.format("%02d:%02d", minutes, seconds));
+            }
+
+            public void onFinish() {}
+        }.start();
+    }
+
+    private void initBoard() {
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+
+                String buttonID = "b" + (row + col + 1);
+                int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
+
+                cells[row][col] = findViewById(resID);
+
+                int finalRow = row;
+                int finalCol = col;
+
+                cells[row][col].setOnClickListener(v -> {
+                    selectedRow = finalRow;
+                    selectedCol = finalCol;
+                });
+            }
+        }
     }
 
     private void openMenu() {
@@ -82,16 +164,10 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void goBack(View v){
+        if (timer != null) {
+            timer.cancel();
+        }
         finish();
     }
 
-    public void openSettings(View v){
-        Intent intent = new Intent(this, SettingsActivity.class);
-        startActivity(intent);
-    }
-
-    public void openMainMenu(View v){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
 }

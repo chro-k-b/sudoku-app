@@ -57,7 +57,7 @@
         android:layout_marginTop="80dp"
         android:layout_marginEnd="80dp"
         android:fontFamily="@font/amaticsc_bold"
-        android:text="TIME"
+        android:text=""
         android:textColor="@color/dark_blue"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,7 +72,7 @@
         android:fontFamily="@font/amaticsc_bold"
         android:textColor="@color/dark_blue"
         android:textSize="24sp"
-        android:text="EASY"
+        android:text="easy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/difficultyTextView" />
 
@@ -85,7 +85,7 @@
         android:fontFamily="@font/amaticsc_bold"
         android:textColor="@color/dark_blue"
         android:textSize="24sp"
-        android:text="05:07"
+        android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timerTextView" />
 

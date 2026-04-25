@@ -1,7 +1,9 @@
 package com.example.homeschoolingjava1;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ToggleButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,9 @@ import com.google.android.material.button.MaterialButton;
 public class SettingsActivity extends AppCompatActivity {
 
     private MaterialButton btnEasy, btnMedium, btnHard;
+    private ToggleButton timerButton;
+    int difficulty = 1;
+    boolean timerEnabled = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,7 @@ public class SettingsActivity extends AppCompatActivity {
         btnEasy = findViewById(R.id.btnEasy);
         btnMedium = findViewById(R.id.btnMedium);
         btnHard = findViewById(R.id.btnHard);
+        timerButton = findViewById(R.id.timerButton);
 
         View.OnClickListener difficultyClickListener = v -> {
             // Uncheck all
@@ -44,9 +50,33 @@ public class SettingsActivity extends AppCompatActivity {
         btnEasy.setOnClickListener(difficultyClickListener);
         btnMedium.setOnClickListener(difficultyClickListener);
         btnHard.setOnClickListener(difficultyClickListener);
+
+        btnEasy.setOnClickListener(v -> {
+            difficulty = 1;
+        });
+
+        btnMedium.setOnClickListener(v -> {
+            difficulty = 2;
+        });
+
+        btnHard.setOnClickListener(v -> {
+            difficulty = 3;
+        });
+
+        timerButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            timerEnabled = isChecked;
+        });
     }
 
     public void goBack(View v){
+        SharedPreferences prefs = getSharedPreferences("SudokuSettings", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putInt("difficulty", difficulty);
+        editor.putBoolean("timerEnabled", timerEnabled);
+
+        editor.apply();
+
         finish();
     }
 }
