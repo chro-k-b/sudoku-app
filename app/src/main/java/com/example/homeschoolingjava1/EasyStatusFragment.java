@@ -1,64 +1,96 @@
 package com.example.homeschoolingjava1;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link EasyStatusFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class EasyStatusFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private TextView gamesWonNumber, averageTimeNumber, bestTimeNumber, noMistakeNumber, averageMistakeNumber;
+    private final ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     public EasyStatusFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment EasyStatusFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static EasyStatusFragment newInstance(String param1, String param2) {
-        EasyStatusFragment fragment = new EasyStatusFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_easy_status, container, false);
+
+        gamesWonNumber = view.findViewById(R.id.gamesWonNumber);
+        averageTimeNumber = view.findViewById(R.id.averageTimeNumber);
+        bestTimeNumber = view.findViewById(R.id.bestTimeNumber);
+        noMistakeNumber = view.findViewById(R.id.noMistakeNumber);
+        averageMistakeNumber = view.findViewById(R.id.averageMistakeNumber);
+
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadData();
+    }
+
+    private void loadData() {
+        executorService.execute(() -> {
+            if (!isAdded()) return;
+            AppDatabase db = AppDatabase.getInstance(requireContext());
+            List<GameHistory> history = db.gameHistoryDao().getByDifficulty("Easy");
+
+            int gamesWon = history.size();
+            int totalSeconds = 0;
+            int bestSeconds = Integer.MAX_VALUE;
+            int noMistakesCount = 0;
+            int totalMistakes = 0;
+
+            for (GameHistory game : history) {
+                int seconds = parseTimeToSeconds(game.timer);
+                totalSeconds += seconds;
+                if (seconds < bestSeconds) bestSeconds = seconds;
+                if (game.mistakes == 0) noMistakesCount++;
+                totalMistakes += game.mistakes;
+            }
+
+            final String wonStr = String.valueOf(gamesWon);
+            final String avgTimeStr = gamesWon > 0 ? formatSeconds(totalSeconds / gamesWon) : "00:00";
+            final String bestTimeStr = (gamesWon > 0 && bestSeconds != Integer.MAX_VALUE) ? formatSeconds(bestSeconds) : "00:00";
+            final String noMistakeStr = String.valueOf(noMistakesCount);
+            final String avgMistakeStr = gamesWon > 0 ? String.format("%.1f", (float) totalMistakes / gamesWon) : "0.0";
+
+            if (isAdded()) {
+                requireActivity().runOnUiThread(() -> {
+                    gamesWonNumber.setText(wonStr);
+                    averageTimeNumber.setText(avgTimeStr);
+                    bestTimeNumber.setText(bestTimeStr);
+                    noMistakeNumber.setText(noMistakeStr);
+                    averageMistakeNumber.setText(avgMistakeStr);
+                });
+            }
+        });
+    }
+
+    private int parseTimeToSeconds(String timer) {
+        try {
+            String[] parts = timer.split(":");
+            return Integer.parseInt(parts[0]) * 60 + Integer.parseInt(parts[1]);
+        } catch (Exception e) {
+            return 0;
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_easy_status, container, false);
+    private String formatSeconds(int totalSeconds) {
+        int minutes = totalSeconds / 60;
+        int seconds = totalSeconds % 60;
+        return String.format("%02d:%02d", minutes, seconds);
     }
 }

@@ -14,6 +14,9 @@ public interface GameHistoryDao {
     @Query("SELECT * FROM game_history ORDER BY id DESC")
     List<GameHistory> getAll();
 
+    @Query("SELECT * FROM game_history WHERE difficulty = :difficulty")
+    List<GameHistory> getByDifficulty(String difficulty);
+
     @Query("DELETE FROM game_history")
     void deleteAll();
 }

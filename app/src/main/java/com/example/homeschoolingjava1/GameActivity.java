@@ -511,25 +511,22 @@ public class GameActivity extends AppCompatActivity {
         String date = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm",
                 java.util.Locale.getDefault()).format(new java.util.Date());
 
-        SharedPreferences prefs = getSharedPreferences("SudokuSettings", MODE_PRIVATE);
-        boolean timerEnabled = prefs.getBoolean("timerEnabled", false);
-
         String difficultyText = "";
         switch(difficulty){
             case(1):
-                difficultyText = "easy";
+                difficultyText = "Easy";
                 break;
             case(2):
-                difficultyText = "medium";
+                difficultyText = "Medium";
                 break;
             case(3):
-                difficultyText = "hard";
+                difficultyText = "Hard";
                 break;
         }
 
-        String timer = getElapsedTime();
+        String timerStr = getElapsedTime();
 
-        GameHistory game = new GameHistory(difficultyText, timer, date, mistakeCount, imagePath);
+        GameHistory game = new GameHistory(difficultyText, timerStr, date, mistakeCount, imagePath);
 
         new Thread(() -> {
             AppDatabase db = AppDatabase.getInstance(getApplicationContext());

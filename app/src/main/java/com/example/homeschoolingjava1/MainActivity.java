@@ -58,4 +58,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=dQw4w9WgXcQ"));
         startActivity(intent);
     }
+    public void openFacebook(View v){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/chiro.kamaran"));
+        startActivity(intent);
+    }
+    public void openInstagram(View v){
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/rivan_iraq/"));
+        startActivity(intent);
+    }
 }

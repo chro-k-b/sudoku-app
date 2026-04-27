@@ -40,22 +40,10 @@ public class HistoryActivity extends AppCompatActivity {
 
         findViewById(R.id.btnReset).setOnClickListener(v -> resetHistory());
 
-        // Add dummy data for testing purposes
-        addDummyData();
+
+
 
         loadHistory();
-    }
-
-    private void addDummyData() {
-        executorService.execute(() -> {
-            List<GameHistory> existing = db.gameHistoryDao().getAll();
-            if (existing.isEmpty()) {
-                db.gameHistoryDao().insert(new GameHistory("Easy", "04:20", "2023-11-01", 0, null));
-                db.gameHistoryDao().insert(new GameHistory("Medium", "08:15", "2023-11-02", 2, null));
-                db.gameHistoryDao().insert(new GameHistory("Hard", "15:40", "2023-11-03", 1, null));
-                loadHistory();
-            }
-        });
     }
 
     private void loadHistory() {
