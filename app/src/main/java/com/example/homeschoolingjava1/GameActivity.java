@@ -19,6 +19,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.card.MaterialCardView;
 
+import java.util.Collections;
+import java.util.List;
+
 public class GameActivity extends AppCompatActivity {
 
     private View menuOverlay;
@@ -42,6 +45,8 @@ public class GameActivity extends AppCompatActivity {
     private android.widget.Button selectedCell = null;
 
     private int difficulty;
+
+    private int mistakeCount = 0;
 
     private static class Move {
         int row;
@@ -375,10 +380,12 @@ public class GameActivity extends AppCompatActivity {
 
         cells[selectedRow][selectedCol].setText(String.valueOf(number));
 
+
         if (solutionBoard[selectedRow][selectedCol] == number) {
             cells[selectedRow][selectedCol].setTextColor(getResources().getColor(R.color.light_blue2));
 
         } else {
+            mistakeCount++;
             // wrong
             if (difficulty == 1) {
                 cells[selectedRow][selectedCol].setTextColor(getResources().getColor(R.color.red));
@@ -499,6 +506,37 @@ public class GameActivity extends AppCompatActivity {
             timer.cancel();
         }
 
+        String imagePath = saveBoardScreenshot();
+
+        String date = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm",
+                java.util.Locale.getDefault()).format(new java.util.Date());
+
+        SharedPreferences prefs = getSharedPreferences("SudokuSettings", MODE_PRIVATE);
+        boolean timerEnabled = prefs.getBoolean("timerEnabled", false);
+
+        String difficultyText = "";
+        switch(difficulty){
+            case(1):
+                difficultyText = "easy";
+                break;
+            case(2):
+                difficultyText = "medium";
+                break;
+            case(3):
+                difficultyText = "hard";
+                break;
+        }
+
+        String timer = getElapsedTime();
+
+        GameHistory game = new GameHistory(difficultyText, timer, date, mistakeCount, imagePath);
+
+        new Thread(() -> {
+            AppDatabase db = AppDatabase.getInstance(getApplicationContext());
+            db.gameHistoryDao().insert(game);
+        }).start();
+
+
         showWinDialog();
     }
 
@@ -506,7 +544,7 @@ public class GameActivity extends AppCompatActivity {
 
         new androidx.appcompat.app.AlertDialog.Builder(this)
                 .setTitle("Congratulations 🎉")
-                .setMessage("You solved the Sudoku!")
+                .setMessage("You solved the Sudoku in " + getElapsedTime() + "!")
 
                 .setPositiveButton("Play Again", (dialog, which) -> {
                     recreate(); // reload activity
@@ -543,6 +581,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void restartGame() {
+        mistakeCount = 0;
 
         // reset board
         copyBoard(originalBoard, playerBoard);
@@ -570,6 +609,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void newGame() {
+        mistakeCount = 0;
 
         // stop timer
         if (timer != null) {
@@ -640,6 +680,45 @@ public class GameActivity extends AppCompatActivity {
 
             }
         }
+    }
+
+    private String saveBoardScreenshot() {
+        try {
+            View boardView = findViewById(R.id.gridLayout);
+
+            android.graphics.Bitmap bitmap = android.graphics.Bitmap.createBitmap(
+                    boardView.getWidth(),
+                    boardView.getHeight(),
+                    android.graphics.Bitmap.Config.ARGB_8888
+            );
+
+            android.graphics.Canvas canvas = new android.graphics.Canvas(bitmap);
+            boardView.draw(canvas);
+
+            // save file
+            java.io.File dir = new java.io.File(getFilesDir(), "images");
+            if (!dir.exists()) dir.mkdirs();
+
+            String fileName = "sudoku_" + System.currentTimeMillis() + ".png";
+            java.io.File file = new java.io.File(dir, fileName);
+
+            java.io.FileOutputStream fos = new java.io.FileOutputStream(file);
+            bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, fos);
+            fos.close();
+
+            return file.getAbsolutePath();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private String getElapsedTime() {
+        int minutes = (int) (secondsElapsed / 60);
+        int seconds = (int) (secondsElapsed % 60);
+
+        return String.format("%02d:%02d", minutes, seconds);
     }
 
 }
