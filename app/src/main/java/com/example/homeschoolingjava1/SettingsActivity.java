@@ -37,6 +37,27 @@ public class SettingsActivity extends AppCompatActivity {
         btnHard = findViewById(R.id.btnHard);
         timerButton = findViewById(R.id.timerButton);
 
+        SharedPreferences prefs = getSharedPreferences("SudokuSettings", MODE_PRIVATE);
+
+        difficulty = prefs.getInt("difficulty", 1);
+        boolean isTimerOn = prefs.getBoolean("timerEnabled", false);
+
+        // reset all buttons
+        btnEasy.setChecked(false);
+        btnMedium.setChecked(false);
+        btnHard.setChecked(false);
+
+        if (difficulty == 1) {
+            btnEasy.setChecked(true);
+        } else if (difficulty == 2) {
+            btnMedium.setChecked(true);
+        } else {
+            btnHard.setChecked(true);
+        }
+
+        timerButton.setChecked(isTimerOn);
+
+
         View.OnClickListener difficultyClickListener = v -> {
             // Uncheck all
             btnEasy.setChecked(false);
@@ -44,24 +65,21 @@ public class SettingsActivity extends AppCompatActivity {
             btnHard.setChecked(false);
 
             // Check the clicked one
-            ((MaterialButton) v).setChecked(true);
+            MaterialButton clicked = (MaterialButton) v;
+            clicked.setChecked(true);
+
+            if (v.getId() == R.id.btnEasy) {
+                difficulty = 1;
+            } else if (v.getId() == R.id.btnMedium) {
+                difficulty = 2;
+            } else if (v.getId() == R.id.btnHard) {
+                difficulty = 3;
+            }
         };
 
         btnEasy.setOnClickListener(difficultyClickListener);
         btnMedium.setOnClickListener(difficultyClickListener);
         btnHard.setOnClickListener(difficultyClickListener);
-
-        btnEasy.setOnClickListener(v -> {
-            difficulty = 1;
-        });
-
-        btnMedium.setOnClickListener(v -> {
-            difficulty = 2;
-        });
-
-        btnHard.setOnClickListener(v -> {
-            difficulty = 3;
-        });
 
         timerButton.setOnCheckedChangeListener((buttonView, isChecked) -> {
             timerEnabled = isChecked;

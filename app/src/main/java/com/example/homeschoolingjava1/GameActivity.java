@@ -78,7 +78,7 @@ public class GameActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("SudokuSettings", MODE_PRIVATE);
 
         difficulty = prefs.getInt("difficulty", 1); // default easy
-        boolean timerEnabled = prefs.getBoolean("timerEnabled", false);
+        boolean timerEnabled = prefs.getBoolean("timerEnabled", true);
 
         difficultyTextView = findViewById(R.id.difficultyTextView1);
         switch(difficulty){
