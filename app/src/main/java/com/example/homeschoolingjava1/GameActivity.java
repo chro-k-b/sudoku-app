@@ -35,6 +35,7 @@ public class GameActivity extends AppCompatActivity {
 
     private int[][] solutionBoard = new int[9][9];
     private int[][] playerBoard = new int[9][9];
+    private int[][] originalBoard = new int[9][9];
 
     private int selectedRow = -1;
     private int selectedCol = -1;
@@ -120,15 +121,15 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        //THe side menu button, needs to work properly, these are just place holders
+
         findViewById(R.id.btnNewGame).setOnClickListener(v -> {
-            // New Game Logic
             closeMenu();
+            showNewGameDialog();
         });
 
         findViewById(R.id.btnRestartMenu).setOnClickListener(v -> {
-            // Restart Logic
             closeMenu();
+            showRestartDialog();
         });
 
         findViewById(R.id.imgEraseContainer).setOnClickListener(v -> eraseSelectedCell());
@@ -145,6 +146,7 @@ public class GameActivity extends AppCompatActivity {
         initBoard();
         generateSolution();
         generatePuzzle();
+        copyBoard(playerBoard, originalBoard);
         displayBoard(playerBoard);
         initNumberButtons();
     }
@@ -538,6 +540,106 @@ public class GameActivity extends AppCompatActivity {
             timer.cancel();
         }
         finish();
+    }
+
+    private void restartGame() {
+
+        // reset board
+        copyBoard(originalBoard, playerBoard);
+
+        resetCellsUI();
+
+        // reset UI
+        displayBoard(playerBoard);
+
+        // clear undo history
+        moveStack.clear();
+
+        // reset timer
+        if (timer != null) {
+            timer.cancel();
+        }
+        secondsElapsed = 0;
+
+        SharedPreferences prefs = getSharedPreferences("SudokuSettings", MODE_PRIVATE);
+        boolean timerEnabled = prefs.getBoolean("timerEnabled", false);
+
+        if (timerEnabled) {
+            startTimer();
+        }
+    }
+
+    private void newGame() {
+
+        // stop timer
+        if (timer != null) {
+            timer.cancel();
+        }
+
+        secondsElapsed = 0;
+
+        resetCellsUI();
+
+        // generate new puzzle
+        generateSolution();
+        generatePuzzle();
+
+        // save new original
+        copyBoard(playerBoard, originalBoard);
+
+        // display
+        displayBoard(playerBoard);
+
+        // clear undo
+        moveStack.clear();
+
+        // restart timer if needed
+        SharedPreferences prefs = getSharedPreferences("SudokuSettings", MODE_PRIVATE);
+        boolean timerEnabled = prefs.getBoolean("timerEnabled", false);
+
+        if (timerEnabled) {
+            startTimer();
+        }
+    }
+
+    private void showRestartDialog() {
+        new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Restart Game")
+                .setMessage("Are you sure you want to restart the current game?")
+
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    restartGame();
+                })
+
+                .setNegativeButton("No", null)
+
+                .show();
+    }
+
+    private void showNewGameDialog() {
+        new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("New Game")
+                .setMessage("Start a new game? Your current progress will be lost.")
+
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    newGame();
+                })
+
+                .setNegativeButton("No", null)
+
+                .show();
+    }
+
+    private void resetCellsUI() {
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+
+                cells[row][col].setEnabled(true);
+                cells[row][col].setText("");
+                cells[row][col].setTextColor(getResources().getColor(R.color.dark_blue));
+
+            }
+        }
     }
 
 }
