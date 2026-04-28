@@ -102,9 +102,12 @@ public class GameActivity extends AppCompatActivity {
         timerTextView = findViewById(R.id.timerTextView);
         timerTextView1 = findViewById(R.id.timerTextView1);
 
+
         if(timerEnabled){
             timerTextView.setText("time");
-            startTimer();
+            startTimer(true);
+        }else{
+            startTimer(false);
         }
 
         // Set click listener for the back button to open menu
@@ -156,7 +159,7 @@ public class GameActivity extends AppCompatActivity {
         initNumberButtons();
     }
 
-    private void startTimer() {
+    private void startTimer(boolean showTimer) {
         timer = new CountDownTimer(3600000, 1000) {
             public void onTick(long millisUntilFinished) {
                 secondsElapsed++;
@@ -164,7 +167,8 @@ public class GameActivity extends AppCompatActivity {
                 int minutes = (int) (secondsElapsed / 60);
                 int seconds = (int) (secondsElapsed % 60);
 
-                timerTextView1.setText(String.format("%02d:%02d", minutes, seconds));
+                if(showTimer)
+                    timerTextView1.setText(String.format("%02d:%02d", minutes, seconds));
             }
 
             public void onFinish() {}
@@ -307,6 +311,19 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void generatePuzzle() {
+        int[][] boxCount = new int[3][3];
+
+
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                boxCount[row / 3][col / 3]++;
+            }
+        }
+        int minPerBox;
+
+        if (difficulty == 1) minPerBox = 4;
+        else if (difficulty == 2) minPerBox = 3;
+        else minPerBox = 2;
 
         playerBoard = new int[9][9];
         copyBoard(solutionBoard, playerBoard);
@@ -324,14 +341,21 @@ public class GameActivity extends AppCompatActivity {
 
             if (playerBoard[row][col] == 0) continue;
 
+            int boxRow = row / 3;
+            int boxCol = col / 3;
+
+            if (boxCount[boxRow][boxCol] <= minPerBox) continue;
+
             int backup = playerBoard[row][col];
             playerBoard[row][col] = 0;
+            boxCount[boxRow][boxCol]--;
 
             int[][] temp = new int[9][9];
             copyBoard(playerBoard, temp);
 
             if (countSolutions(temp) != 1) {
                 playerBoard[row][col] = backup; // restore
+                boxCount[boxRow][boxCol]++;
             } else {
                 removals--;
             }
@@ -383,16 +407,11 @@ public class GameActivity extends AppCompatActivity {
 
         if (solutionBoard[selectedRow][selectedCol] == number) {
             cells[selectedRow][selectedCol].setTextColor(getResources().getColor(R.color.light_blue2));
-
         } else {
             mistakeCount++;
-            // wrong
-            if (difficulty == 1) {
-                cells[selectedRow][selectedCol].setTextColor(getResources().getColor(R.color.red));
-            } else {
-                cells[selectedRow][selectedCol].setTextColor(getResources().getColor(R.color.light_blue2));
-            }
+            cells[selectedRow][selectedCol].setTextColor(getResources().getColor(R.color.red));
         }
+
         if (selectedCell != null) {
             selectedCell.setBackgroundTintList(null);
             selectedCell = null;
@@ -538,10 +557,11 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void showWinDialog() {
+        boolean timerEnabled = getSharedPreferences("SudokuSettings", MODE_PRIVATE).getBoolean("timerEnabled", true);
 
         new androidx.appcompat.app.AlertDialog.Builder(this)
                 .setTitle("Congratulations 🎉")
-                .setMessage("You solved the Sudoku in " + getElapsedTime() + "!")
+                .setMessage(timerEnabled ? "You solved the Sudoku in " + getElapsedTime() + "!" : "You solved the Sudoku!")
 
                 .setPositiveButton("Play Again", (dialog, which) -> {
                     recreate(); // reload activity
@@ -598,10 +618,12 @@ public class GameActivity extends AppCompatActivity {
         secondsElapsed = 0;
 
         SharedPreferences prefs = getSharedPreferences("SudokuSettings", MODE_PRIVATE);
-        boolean timerEnabled = prefs.getBoolean("timerEnabled", false);
+        boolean timerEnabled = prefs.getBoolean("timerEnabled", true);
 
         if (timerEnabled) {
-            startTimer();
+            startTimer(true);
+        }else {
+            startTimer(false);
         }
     }
 
@@ -632,10 +654,12 @@ public class GameActivity extends AppCompatActivity {
 
         // restart timer if needed
         SharedPreferences prefs = getSharedPreferences("SudokuSettings", MODE_PRIVATE);
-        boolean timerEnabled = prefs.getBoolean("timerEnabled", false);
+        boolean timerEnabled = prefs.getBoolean("timerEnabled", true);
 
         if (timerEnabled) {
-            startTimer();
+            startTimer(true);
+        }else{
+            startTimer(false);
         }
     }
 

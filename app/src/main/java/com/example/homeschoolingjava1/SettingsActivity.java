@@ -18,7 +18,7 @@ public class SettingsActivity extends AppCompatActivity {
     private MaterialButton btnEasy, btnMedium, btnHard;
     private ToggleButton timerButton;
     int difficulty = 1;
-    boolean timerEnabled = false;
+    boolean timerEnabled = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class SettingsActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("SudokuSettings", MODE_PRIVATE);
 
         difficulty = prefs.getInt("difficulty", 1);
-        boolean isTimerOn = prefs.getBoolean("timerEnabled", false);
+        boolean isTimerOn = prefs.getBoolean("timerEnabled", true);
 
         // reset all buttons
         btnEasy.setChecked(false);

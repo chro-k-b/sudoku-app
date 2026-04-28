@@ -65,14 +65,15 @@
 
     <TextView
         android:id="@+id/difficultyTextView1"
-        android:layout_width="wrap_content"
+        android:layout_width="83dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="14dp"
         android:fontFamily="@font/amaticsc_bold"
+        android:text="easy"
+        android:textAlignment="center"
         android:textColor="@color/dark_blue"
         android:textSize="24sp"
-        android:text="easy"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/difficultyTextView" />
 
