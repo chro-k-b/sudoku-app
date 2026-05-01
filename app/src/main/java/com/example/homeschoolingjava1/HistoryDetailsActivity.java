@@ -28,7 +28,7 @@ public class HistoryDetailsActivity extends AppCompatActivity {
 
         // Receive data
         String difficulty = getIntent().getStringExtra("difficulty");
-        String timer = getIntent().getStringExtra("timer");
+        String timer = getIntent().getStringExtra("timerEnabled");
         int mistakes = getIntent().getIntExtra("mistakes", 0);
         String date = getIntent().getStringExtra("date");
         String imagePath = getIntent().getStringExtra("imagePath");

@@ -57,7 +57,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, HistoryDetailsActivity.class);
             intent.putExtra("difficulty", history.difficulty);
-            intent.putExtra("timer", history.timer);
+            intent.putExtra("timerEnabled", history.timer);
             intent.putExtra("mistakes", history.mistakes);
             intent.putExtra("date", history.date);
             intent.putExtra("imagePath", history.imagePath);
